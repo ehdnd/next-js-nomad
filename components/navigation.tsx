@@ -5,12 +5,13 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export default function Navigation() {
+  console.log("use client");
+
   // Client Component 에서만 사용가능
   const path = usePathname();
   console.log(path);
 
   const [count, setCount] = useState(0);
-
   return (
     <nav>
       <ul>
