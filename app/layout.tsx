@@ -1,3 +1,5 @@
+import Navigation from "../components/navigation";
+
 export const metadata = {
   title: "NextJs",
   description: "letsss goo",
@@ -10,7 +12,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        <Navigation />
+        {children}
+      </body>
     </html>
   );
 }
