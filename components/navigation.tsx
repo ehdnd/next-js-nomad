@@ -5,11 +5,15 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export default function Navigation() {
-  console.log("use client");
+  console.log("🔄 [서버 + 브라우저] Navigation 실행 - use client");
+  console.log(
+    "📍 실행 환경:",
+    typeof window === "undefined" ? "🖥️  서버(Node.js)" : "🌐 브라우저"
+  );
 
   // Client Component 에서만 사용가능
   const path = usePathname();
-  console.log(path);
+  console.log("📂 현재 경로:", path);
 
   const [count, setCount] = useState(0);
   return (
