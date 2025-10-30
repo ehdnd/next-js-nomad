@@ -17,7 +17,7 @@ async function getMovies() {
   // fetch한 데이터를 알아서 캐싱해둔다
   // 첫 번째 fetch 만 요청하고 이후 요청부터는 api 호출하지 않는다
   // 최신데이터를 가져와야하는 경우는 나중에 다루자.
-  return await (await fetch(API_URL)).json();
+  return (await fetch(API_URL, { cache: "force-cache" })).json();
 }
 
 // async function 으로 바꿔주자

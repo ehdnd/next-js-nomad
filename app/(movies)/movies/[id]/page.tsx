@@ -3,14 +3,16 @@ import { API_URL } from "../../../(home)/page";
 const getMovie = async (id: string) => {
   console.log(`Fetching Movies: ${Date.now()}`);
   await new Promise((resolve) => setTimeout(resolve, 1000));
-  const response = await fetch(`${API_URL}/${id}`);
+  const response = await fetch(`${API_URL}/${id}`, { cache: "force-cache" });
   return response.json();
 };
 
 const getVideos = async (id: string) => {
   console.log(`Fetching Videos: ${Date.now()}`);
   await new Promise((resolve) => setTimeout(resolve, 1000));
-  const response = await fetch(`${API_URL}/${id}/videos`);
+  const response = await fetch(`${API_URL}/${id}/videos`, {
+    cache: "force-cache",
+  });
   return response.json();
 };
 
