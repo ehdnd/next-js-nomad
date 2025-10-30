@@ -1,5 +1,7 @@
 "use client";
 
+import styles from "../styles/navigation.module.css";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -9,7 +11,7 @@ export default function Navigation() {
   console.log("📂 현재 경로:", path);
 
   return (
-    <nav>
+    <nav className={styles.nav}>
       <ul>
         <li>
           <Link href="/">Home</Link> {path === "/" ? "(here)" : ""}
