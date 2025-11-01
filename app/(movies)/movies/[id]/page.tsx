@@ -1,12 +1,20 @@
 import { Suspense } from "react";
-import MovieInfo from "../../../../components/movie-info";
+import MovieInfo, { getMovie } from "../../../../components/movie-info";
 import MovieVideos from "../../../../components/movie-videos";
 
-export default async function MovieDetail({
-  params,
-}: {
+interface IParams {
   params: Promise<{ id: string }>;
-}) {
+}
+
+// parmas 를 여기에도 전달해준다
+export async function generateMetadata({ params }: IParams) {
+  const { id } = await params;
+  // 여러번 fetch 시 cache 된다면 큰 문제가 없다
+  const movie = await getMovie(id);
+  return { title: movie.title };
+}
+
+export default async function MovieDetailPage({ params }: IParams) {
   const { id } = await params;
 
   // 두 컴포넌트 모두 async 컴포넌트이기에 Suspense로 묶자
