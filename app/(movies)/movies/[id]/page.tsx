@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import MovieInfo, { getMovie } from "../../../../components/movie-info";
 import MovieVideos from "../../../../components/movie-videos";
+import MovieCredits from "../../../../components/movie-credits";
 
 interface IParams {
   params: Promise<{ id: string }>;
@@ -26,13 +27,14 @@ export default async function MovieDetailPage({ params }: IParams) {
   // -> 페이지는 바로 유저에게 표시된다
   return (
     <div>
-      <h3>Movie Info</h3>
       <Suspense fallback={<h1>Loading movie info...</h1>}>
         <MovieInfo id={id} />
       </Suspense>
-      <h3>Movie Videos</h3>
       <Suspense fallback={<h1>Loading movie videos...</h1>}>
         <MovieVideos id={id} />
+      </Suspense>
+      <Suspense>
+        <MovieCredits id={id} />
       </Suspense>
     </div>
   );

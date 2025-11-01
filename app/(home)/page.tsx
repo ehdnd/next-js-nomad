@@ -1,11 +1,12 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { API_URL } from "../constatns";
+
+import styles from "../../styles/home.module.css";
 
 export const metadata: Metadata = {
   title: "Home",
 };
-
-export const API_URL = "https://nomad-movies.nomadcoders.workers.dev/movies";
 
 // server component라 Page() 안에 없어도 된다
 // backend 에서 영화를 fetch 해온다
@@ -26,8 +27,8 @@ export default async function HomePage() {
 
   return (
     <div>
-      <h1>Hello NextJs!</h1>
-      <div>
+      <h1 className={styles.title}>Best Movies</h1>
+      <div className={styles.container}>
         <ul>
           {movies.map((movie) => (
             <li key={movie.id}>

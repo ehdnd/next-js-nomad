@@ -1,4 +1,4 @@
-import { API_URL } from "../app/(home)/page";
+import { API_URL } from "../app/constatns";
 
 const getVideos = async (id: string) => {
   console.log(`Fetching Videos: ${Date.now()}`);
@@ -13,5 +13,10 @@ const getVideos = async (id: string) => {
 // videos 만을 보여주는 컴포넌트를 만들자
 export default async function MovieVideos({ id }: { id: string }) {
   const videos = await getVideos(id);
-  return <h6>{JSON.stringify(videos)}</h6>;
+  return (
+    <>
+      <h3>Movie Videos</h3>
+      <h6>{JSON.stringify(videos)}</h6>
+    </>
+  );
 }

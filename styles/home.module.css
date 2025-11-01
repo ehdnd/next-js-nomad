@@ -1,0 +1,11 @@
+.title {
+  font-size: 30px;
+}
+
+.container {
+  padding: 10px;
+}
+
+.container ul li {
+  margin: 5px 0px;
+}

@@ -1,4 +1,4 @@
-import { API_URL } from "../app/(home)/page";
+import { API_URL } from "../app/constatns";
 
 export async function getMovie(id: string) {
   console.log(`Fetching Movies: ${Date.now()}`);
@@ -9,5 +9,11 @@ export async function getMovie(id: string) {
 
 export default async function MovieInfo({ id }: { id: string }) {
   const movie = await getMovie(id);
-  return <h6>{JSON.stringify(movie)}</h6>;
+  return (
+    <>
+      <h1>{movie.title}</h1>
+      <h3>Movie Info</h3>
+      <h6>{JSON.stringify(movie)}</h6>
+    </>
+  );
 }
